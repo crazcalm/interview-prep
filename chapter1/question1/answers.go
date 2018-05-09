@@ -12,12 +12,16 @@ Part2: What if you cannot use an additional data structure?
 */
 
 /*
-TODO: Create a solution that sorts the string in place and then
+TODO: Create a solution that sorts the string in place (Quick sort) and then
 	  Checks the neighboring values
 */
 
 /*
-TODO: Learn what bit vectors are and create a solution using them
+TODO: Learn what bit vectors are and create a solution using them.
+*/
+
+/*
+TODO: Create a solution using the standard library just to compare.
 */
 
 //BruteForce -- brute force solution
