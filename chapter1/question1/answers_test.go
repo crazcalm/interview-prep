@@ -32,12 +32,28 @@ func helper(t *testing.T, function func(string) bool) {
 	}
 }
 
+func TestStandardLibrary(t *testing.T) {
+	helper(t, StandardLibrary)
+}
+
+func TestQuickSort(t *testing.T) {
+	helper(t, QuickSort)
+}
+
 func TestHash(t *testing.T) {
 	helper(t, Hash)
 }
 
 func TestBruteForce(t *testing.T) {
 	helper(t, BruteForce)
+}
+
+func BenchmarkStandardLibrary(b *testing.B) {
+	StandardLibrary(BenchMarkCase)
+}
+
+func BenchmarkQuickSort(b *testing.B) {
+	QuickSort(BenchMarkCase)
 }
 
 func BenchmarkHash(b *testing.B) {
