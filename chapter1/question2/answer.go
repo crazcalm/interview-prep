@@ -2,6 +2,8 @@ package question2
 
 import (
 	"strings"
+
+	"github.com/crazcalm/interview-prep/data_structures/sorting"
 )
 
 /*
@@ -16,6 +18,27 @@ TODO: Even though it should be slower than the Hash solution, I should still wri
 - Checks that every char for index i matches
 - O(n log(n))
 */
+
+//MergeSort --Uses merge sort in the solution
+func MergeSort(s1, s2 string) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+
+	string1 := strings.Split(s1, "")
+	string2 := strings.Split(s2, "")
+
+	string1 = sort.MergeSortStrings(string1)
+	string2 = sort.MergeSortStrings(string2)
+
+	for i := 0; i < len(string1); i++ {
+		if string1[i] != string2[i] {
+			return false
+		}
+	}
+
+	return true
+}
 
 //Counter -- A helper function to create the hash char counters
 func Counter(s []string) map[string]int {

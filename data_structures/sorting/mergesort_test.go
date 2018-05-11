@@ -4,6 +4,24 @@ import (
 	"testing"
 )
 
+func TestMergeSortStrings(t *testing.T) {
+	tests := []struct {
+		Input    []string
+		Solution []string
+	}{
+		{Input: []string{"a", "g", "b", "f", "d", "e", "c"}, Solution: []string{"a", "b", "c", "d", "e", "f", "g"}},
+	}
+
+	for _, test := range tests {
+		result := MergeSortStrings(test.Input)
+		for i := 0; i < len(test.Solution); i++ {
+			if result[i] != test.Solution[i] {
+				t.Errorf("Expected sorted answer to be %v, but got %v", test.Solution, test.Input)
+			}
+		}
+	}
+}
+
 func TestMergeSort(t *testing.T) {
 	tests := []struct {
 		Input  []int
