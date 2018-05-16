@@ -32,21 +32,38 @@ func linkedListCase1() linkedlist.List {
 
 func TestSimple(t *testing.T) {
 	kth := 5
+	expected := 9 - kth
 	answer := Simple(linkedListCase1(), kth)
-	if answer.Data.(int) != 10-kth {
-		t.Errorf("Expected %d, but got %d", 10-kth, answer.Data.(int))
+	if answer.Data.(int) != expected {
+		t.Errorf("Expected %d, but got %d", expected, answer.Data.(int))
 	}
 }
 
-/*
+func TestGetElement(t *testing.T) {
+	list := linkedListCase1()
+	wanted := 3
+	answer := getElement(list.FirstNode, 0, wanted)
+
+	if answer.Data.(int) != wanted {
+		t.Errorf("Expected %d, but got %d", wanted, answer.Data.(int))
+	}
+}
+
+func TestLength(t *testing.T) {
+	list := linkedListCase1()
+	length := lengthRecursion(list.FirstNode)
+
+	if length != 9 {
+		t.Errorf("Expected length to be %d, but got %d", 9, length)
+	}
+}
+
 func TestRecursion(t *testing.T) {
 	list := linkedListCase1()
 	kth := 1
-	var answer *linkedlist.Node
-	Recursion(list.FirstNode, 0)
+	answer := Recursion(list, kth)
 
-	if answer.Data.(int) != 10-kth {
+	if answer.Data.(int) != 9-kth {
 		t.Errorf("Expected %d, but got %d", 10-kth, answer.Data.(int))
 	}
 }
-*/
