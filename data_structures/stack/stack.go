@@ -22,6 +22,54 @@ type Stack interface {
 	Length() int
 }
 
+//SliceStack -- Stack implementation that uses a slice
+type SliceStack struct {
+	slice []interface{}
+}
+
+//NewSliceStack -- Returns an empty stack
+func NewSliceStack() Stack {
+	return SliceStack{slice: []interface{}{}}
+}
+
+//Push -- Adds an element to the stack
+func (s SliceStack) Push(data interface{}) Stack {
+	s.slice = append(s.slice, data)
+	return s
+}
+
+//Pop -- Pops the last element off the stack
+func (s SliceStack) Pop() (Stack, interface{}, error) {
+	if len(s.slice) == 0 {
+		return s, nil, errors.New("The Stack is empty")
+	}
+	data := s.slice[len(s.slice)-1]
+	s.slice = s.slice[:len(s.slice)-1]
+
+	return s, data, nil
+}
+
+//Peek -- Allows you to see the top element on the stack
+func (s SliceStack) Peek() (data interface{}, err error) {
+	if len(s.slice) == 0 {
+		return data, errors.New("The Stack is empty")
+	}
+	return s.slice[len(s.slice)-1], nil
+}
+
+//Empty -- If stack is empty, returns true. Otherwise, returns false
+func (s SliceStack) Empty() bool {
+	if len(s.slice) == 0 {
+		return true
+	}
+	return false
+}
+
+//Length -- Returns the number of elements in the stack
+func (s SliceStack) Length() int {
+	return len(s.slice)
+}
+
 //LinkedListStack -- Stack implementation that uses linkedlists
 type LinkedListStack struct {
 	list linkedlist.List

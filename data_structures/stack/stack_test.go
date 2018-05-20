@@ -6,8 +6,8 @@ import (
 	"testing"
 )
 
-func TestLinkedListStack(t *testing.T) {
-	stack := NewLinkedListStack()
+func testNewStack(t *testing.T, function func() Stack) {
+	stack := function()
 
 	result := fmt.Sprintf("%T", stack)
 
@@ -16,7 +16,7 @@ func TestLinkedListStack(t *testing.T) {
 	}
 }
 
-func TestEmpty(t *testing.T) {
+func testEmpty(t *testing.T, function func() Stack) {
 	tests := []struct {
 		Data   []int
 		Expect bool
@@ -26,7 +26,7 @@ func TestEmpty(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		stack := NewLinkedListStack()
+		stack := function()
 		for _, data := range test.Data {
 			stack = stack.Push(data)
 		}
@@ -37,7 +37,7 @@ func TestEmpty(t *testing.T) {
 	}
 }
 
-func TestPeek(t *testing.T) {
+func testPeek(t *testing.T, function func() Stack) {
 	tests := []struct {
 		Data []int
 		Err  bool
@@ -47,7 +47,7 @@ func TestPeek(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		stack := NewLinkedListStack()
+		stack := function()
 		for _, data := range test.Data {
 			stack = stack.Push(data)
 		}
@@ -71,7 +71,7 @@ func TestPeek(t *testing.T) {
 	}
 }
 
-func TestPop(t *testing.T) {
+func testPop(t *testing.T, function func() Stack) {
 	tests := []struct {
 		Data []int
 		Err  bool
@@ -112,7 +112,7 @@ func TestPop(t *testing.T) {
 	}
 }
 
-func TestPush(t *testing.T) {
+func testPush(t *testing.T, function func() Stack) {
 	tests := []struct {
 		Data   []int
 		Length int
@@ -123,7 +123,7 @@ func TestPush(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		stack := NewLinkedListStack()
+		stack := function()
 		for _, data := range test.Data {
 			stack = stack.Push(data)
 		}
@@ -134,8 +134,8 @@ func TestPush(t *testing.T) {
 	}
 }
 
-func BenchmarkLinkedListStack(b *testing.B) {
-	stack := NewLinkedListStack()
+func benchmark(b *testing.B, function func() Stack) {
+	stack := function()
 	for i := 0; i < 1000000; i++ {
 		stack.Push(i)
 	}
@@ -143,4 +143,52 @@ func BenchmarkLinkedListStack(b *testing.B) {
 	for !stack.Empty() {
 		stack.Pop()
 	}
+}
+
+func TestNewLinkedListStack(t *testing.T) {
+	testNewStack(t, NewLinkedListStack)
+}
+
+func TestNewSliceStack(t *testing.T) {
+	testNewStack(t, NewSliceStack)
+}
+
+func TestLinkedListStackEmpty(t *testing.T) {
+	testEmpty(t, NewLinkedListStack)
+}
+
+func TestSliceStackEmpty(t *testing.T) {
+	testEmpty(t, NewSliceStack)
+}
+
+func TestLinkedListStackPeek(t *testing.T) {
+	testPeek(t, NewLinkedListStack)
+}
+
+func TestSliceStackPeek(t *testing.T) {
+	testPeek(t, NewSliceStack)
+}
+
+func TestLinkedListStackPop(t *testing.T) {
+	testPop(t, NewLinkedListStack)
+}
+
+func TestSliceStackPop(t *testing.T) {
+	testPop(t, NewSliceStack)
+}
+
+func TestLinkedListStackPush(t *testing.T) {
+	testPush(t, NewLinkedListStack)
+}
+
+func TestSliceStackPush(t *testing.T) {
+	testPush(t, NewSliceStack)
+}
+
+func BenchmarkLinkedListStack(b *testing.B) {
+	benchmark(b, NewLinkedListStack)
+}
+
+func BenchmarkSliceStack(b *testing.B) {
+	benchmark(b, NewSliceStack)
 }
