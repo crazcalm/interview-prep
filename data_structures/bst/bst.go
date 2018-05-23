@@ -183,3 +183,25 @@ func (t *BinarySearchTree) Successor(n, root *Element) *Element {
 	return cur.Parent
 
 }
+
+//TraverseInOrder -- Traverses the tree and calls the callback
+func TraverseInOrder(cur *Element, callback func(cur *Element)) {
+	if cur == nil {
+		return
+	}
+
+	TraverseInOrder(cur.Left, callback)
+	callback(cur)
+	TraverseInOrder(cur.Right, callback)
+}
+
+//TraverseReverseOrder -- Traverses the tree and calls the callback
+func TraverseReverseOrder(cur *Element, callback func(cur *Element)) {
+	if cur == nil {
+		return
+	}
+
+	TraverseReverseOrder(cur.Right, callback)
+	callback(cur)
+	TraverseReverseOrder(cur.Left, callback)
+}

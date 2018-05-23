@@ -1,6 +1,7 @@
 package bst
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -118,4 +119,34 @@ func TestDelete(t *testing.T) {
 	if bst.Root != nil {
 		t.Errorf("Expected the tree to be empty, but it was not: %v", bst)
 	}
+}
+
+func TestTraverseInOrder(t *testing.T) {
+	bst := NewTree()
+
+	data := []uint32{5, 4, 3, 2, 1}
+	for _, v := range data {
+		element := &Element{Key: v, Value: v, Parent: nil, Right: nil, Left: nil}
+		bst.Insert(element)
+	}
+	callback := func(node *Element) {
+		fmt.Printf("Node: %v\n", node)
+	}
+
+	TraverseInOrder(bst.Root, callback)
+}
+
+func TestTraverseReverseOrder(t *testing.T) {
+	bst := NewTree()
+
+	data := []uint32{5, 4, 3, 2, 1}
+	for _, v := range data {
+		element := &Element{Key: v, Value: v, Parent: nil, Right: nil, Left: nil}
+		bst.Insert(element)
+	}
+	callback := func(node *Element) {
+		fmt.Printf("Node: %v\n", node)
+	}
+
+	TraverseReverseOrder(bst.Root, callback)
 }
