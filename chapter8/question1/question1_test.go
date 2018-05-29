@@ -33,15 +33,15 @@ func TestStepsMemoization(t *testing.T) {
 	testSteps(t, StepsMemoization)
 }
 
-func benchmark37(b *testing.B, function func(int) int) {
-	input := 37
+func benchmark32(b *testing.B, function func(int) int) {
+	input := 32
 	function(input)
 }
 
 func BenchmarkStepsRecursion(b *testing.B) {
-	benchmark37(b, StepsRecursion)
+	benchmark32(b, StepsRecursion)
 }
 
 func BenchmarkStepsMemoization(b *testing.B) {
-	benchmark37(b, StepsMemoization)
+	benchmark32(b, StepsMemoization)
 }
