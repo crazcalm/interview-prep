@@ -58,8 +58,8 @@ func TestBottomUpMemoizationFib(t *testing.T) {
 	testFib(t, BottomUpMemoizationFib)
 }
 
-func benchmarkFib50(b *testing.B, function func(int) int) {
-	input := 50
+func benchmarkFib40(b *testing.B, function func(int) int) {
+	input := 40
 	function(input)
 }
 
@@ -68,16 +68,16 @@ func benchmarkFib1000000(b *testing.B, function func(int) int) {
 	function(input)
 }
 
-func BenchmarkRecursiveFib50(b *testing.B) {
-	benchmarkFib50(b, RecursiveFib)
+func BenchmarkRecursiveFib40(b *testing.B) {
+	benchmarkFib40(b, RecursiveFib)
 }
 
-func BenchmarkIterativeFib50(b *testing.B) {
-	benchmarkFib50(b, IterativeFib)
+func BenchmarkIterativeFib40(b *testing.B) {
+	benchmarkFib40(b, IterativeFib)
 }
 
-func BenchmarkTopDownMemoizationFib50(b *testing.B) {
-	benchmarkFib50(b, TopDownMemoizationFib)
+func BenchmarkTopDownMemoizationFib40(b *testing.B) {
+	benchmarkFib40(b, TopDownMemoizationFib)
 }
 
 func BenchmarkIterativeFib10000000(b *testing.B) {
