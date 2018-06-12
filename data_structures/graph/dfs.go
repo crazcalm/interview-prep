@@ -50,6 +50,7 @@ func DFS(g *Graph2, vertex int) {
 			DFS(g, childID)
 		} else if !Processed[childID] || g.Directed {
 			processEdge(vertex, childID)
+			processEdgeCycles(vertex, childID)
 		}
 
 		if Finished { //If search is marked as done, return
@@ -66,4 +67,20 @@ func DFS(g *Graph2, vertex int) {
 	fmt.Printf("Exit Time for %d: %d\n", vertex, Time)
 
 	Processed[vertex] = true
+}
+
+/*
+Note: All the parents have been discovered. If the parent does not point to the child,
+      then the parent has a different child, which means this edge (parent, child) implies
+      that there are at least two paths that reach this child. Thus, a cycle exists.
+*/
+func processEdgeCycles(parent, child int) {
+	if Parent[parent] != child { //We have found a back edge (a cycle exists)!
+		fmt.Printf("Cycle from %d to %d:\n", parent, child)
+		FindPath(parent, child, Parent)
+		fmt.Printf("\n")
+		FindPath(child, parent, Parent)
+		fmt.Printf("\n\n")
+		//Finished = true
+	}
 }
