@@ -13,3 +13,10 @@ func TestBFS(t *testing.T) {
 	FindPath2(0, 4, Parent)
 
 }
+
+func TestConnectedComponents(t *testing.T) {
+	graph := ReadIn(testData)
+
+	InitializeSearch(graph)
+	ConnectedComponents(graph)
+}

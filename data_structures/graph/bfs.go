@@ -104,3 +104,18 @@ func FindPath2(start, end int, parent []int) []int {
 	}
 	return result
 }
+
+/*ConnectedComponents --
+A connected component of an undirected graph is a maximal set of vertices such that
+there is a path between every pair of vertices.
+*/
+func ConnectedComponents(g *Graph2) {
+	var counter int //Counts the number of connected components
+	for i := 0; i <= g.NVertices; i++ {
+		if !Discovered[i] {
+			counter++
+			fmt.Printf("Component %d:\n", counter)
+			BFS(g, i)
+		}
+	}
+}
