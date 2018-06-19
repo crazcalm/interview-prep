@@ -1,9 +1,5 @@
 package bst
 
-import (
-//"fmt"
-)
-
 //Element -- Element of a binary tree
 type Element struct {
 	Key                 uint32
