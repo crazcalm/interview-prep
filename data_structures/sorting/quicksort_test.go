@@ -43,3 +43,57 @@ func TestQuickSortString(t *testing.T) {
 		}
 	}
 }
+
+func benchmark(b *testing.B, list []int, function func([]int)) {
+	function(list)
+}
+
+func Benchmark10000000(b *testing.B) {
+	numOfItems := 10000000
+	list := make([]int, numOfItems)
+	for i := 0; i < numOfItems; i++ {
+		list[i] = i
+	}
+
+	benchmark(b, list, QuickSort)
+}
+
+func Benchmark1000000(b *testing.B) {
+	numOfItems := 1000000
+	list := make([]int, numOfItems)
+	for i := 0; i < numOfItems; i++ {
+		list[i] = i
+	}
+
+	benchmark(b, list, QuickSort)
+}
+
+func Benchmark100000(b *testing.B) {
+	numOfItems := 100000
+	list := make([]int, numOfItems)
+	for i := 0; i < numOfItems; i++ {
+		list[i] = i
+	}
+
+	benchmark(b, list, QuickSort)
+}
+
+func Benchmark10000(b *testing.B) {
+	numOfItems := 10000
+	list := make([]int, numOfItems)
+	for i := 0; i < numOfItems; i++ {
+		list[i] = i
+	}
+
+	benchmark(b, list, QuickSort)
+}
+
+func Benchmark1000(b *testing.B) {
+	numOfItems := 1000
+	list := make([]int, numOfItems)
+	for i := 0; i < numOfItems; i++ {
+		list[i] = i
+	}
+
+	benchmark(b, list, QuickSort)
+}
