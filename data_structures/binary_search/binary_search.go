@@ -5,7 +5,7 @@ func BinarySearch(list []int, value int) int {
 	left := 0
 	right := len(list) - 1
 
-	for left < right {
+	for left <= right {
 		middle := (left + right) / 2
 		if list[middle] == value {
 			return middle
