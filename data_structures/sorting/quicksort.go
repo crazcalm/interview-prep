@@ -18,6 +18,8 @@ In order to make this implementation run faster for the case of already having a
 sorted list, you can switch the last element with a random element in the list.
 
 See func partition for more details.
+- Remove that random swap and run the benchmark tests to see how much slower
+  it runs.
 */
 
 func init() {
