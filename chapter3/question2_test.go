@@ -14,7 +14,7 @@ func TestTwoStackCase1(t *testing.T) {
 
 	answer, err := stack.Min()
 	if err != nil {
-		t.Errorf("Error occured while trying to get Min value: %s", err.Error())
+		t.Errorf("Error occurred while trying to get Min value: %s", err.Error())
 	}
 
 	if answer.(int) != expected {
@@ -32,7 +32,7 @@ func TestTwoStackCase2(t *testing.T) {
 
 	answer, err := stack.Min()
 	if err != nil {
-		t.Errorf("Error occured while trying to get Min value: %s", err.Error())
+		t.Errorf("Error occurred while trying to get Min value: %s", err.Error())
 	}
 
 	if answer.(int) != expected {
@@ -50,7 +50,7 @@ func TestTwoStackCase3(t *testing.T) {
 
 	answer, err := stack.Min()
 	if err != nil {
-		t.Errorf("Error occured while trying to get Min value: %s", err.Error())
+		t.Errorf("Error occurred while trying to get Min value: %s", err.Error())
 	}
 
 	if answer.(int) != expected {
@@ -73,7 +73,7 @@ func TestTwoStackCase4(t *testing.T) {
 
 	answer, err := stack.Min()
 	if err != nil {
-		t.Errorf("Error occured while trying to get Min value: %s", err.Error())
+		t.Errorf("Error occurred while trying to get Min value: %s", err.Error())
 	}
 
 	if answer.(int) != expected {

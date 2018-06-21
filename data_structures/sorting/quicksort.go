@@ -11,7 +11,7 @@ Partition function notes:
 If the item to be sorted is already sorted, then this implementation
 will run with O(n^2) time complexity because each call to the partition
 function will return the last index, which is len(input)-1). As a result,
-quicksort is never able to "divide and conquer" becuase the "pivot" is always
+quicksort is never able to "divide and conquer" because the "pivot" is always
 the last item in the slice.
 
 In order to make this implementation run faster for the case of already having a
