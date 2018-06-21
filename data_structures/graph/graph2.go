@@ -14,9 +14,9 @@ const (
 
 //Data -- Used to decode map input data from json
 type Data struct {
-	TotalNodes int              `json: "total_nodes"`
-	Directed   bool             `json: "directed"`
-	Mapping    map[string][]int `json: "mapping"`
+	TotalNodes int              `json:"total_nodes"`
+	Directed   bool             `json:"directed"`
+	Mapping    map[string][]int `json:"mapping"`
 }
 
 //Node -- Node will be used as the linked list (like) structure to make the list portion of
@@ -53,22 +53,14 @@ func ReadIn(rawData []byte) *Graph2 {
 	graph := New2(data.Directed)
 	graph.NVertices = data.TotalNodes
 
-	//fmt.Printf("rawData: %v\ndata: %v\n", string(rawData), data)
-
 	for node, edges := range data.Mapping {
 		nodeInt, err := strconv.Atoi(node)
 		if err != nil {
-			log.Fatal("Error occurred when node string (%s) to int: %d", node, err.Error())
+			log.Fatalf("Error occurred when node string (%s) to int: %s", node, err.Error())
 		}
 		for _, edge := range edges {
 			InsertEdge(graph, nodeInt, edge, data.Directed)
-			//fmt.Printf("graph: %v\n", graph)
 		}
-	}
-
-	//For some reason, the json total_node field is not reading
-	if graph.NVertices == 0 {
-		graph.NVertices = len(data.Mapping)
 	}
 
 	return graph

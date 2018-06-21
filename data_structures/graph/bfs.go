@@ -35,7 +35,7 @@ func BFS(g *Graph2, start int) {
 	for queue.Len() != 0 {
 		item, err := queue.Dequeue()
 		if err != nil {
-			log.Fatal("Error occurred when dequeuing and item: %s", err.Error())
+			log.Fatalf("Error occurred when dequeuing and item: %s", err.Error())
 		}
 		vertex := item.(int)
 		processVertexEarly(vertex)
