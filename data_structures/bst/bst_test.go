@@ -6,7 +6,7 @@ import (
 )
 
 func TestNewTree(t *testing.T) {
-	NewTree()
+	_ = NewTree()
 }
 
 func TestRecursiveMin(t *testing.T) {
