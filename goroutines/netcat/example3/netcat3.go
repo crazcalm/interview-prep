@@ -1,12 +1,10 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
+	"io"
 	"log"
 	"net"
-	"strings"
-	"time"
+	"os"
 )
 
 func mustCopy(dst io.Writer, src io.Reader) {
