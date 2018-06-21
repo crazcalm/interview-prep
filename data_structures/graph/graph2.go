@@ -47,7 +47,10 @@ func New2(directed bool) *Graph2 {
 //ReadIn -- Reads in data from json and adds it to the graph
 func ReadIn(rawData []byte) *Graph2 {
 	data := new(Data)
-	json.Unmarshal(rawData, data)
+	err := json.Unmarshal(rawData, data)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	//Initialize the graph
 	graph := New2(data.Directed)
