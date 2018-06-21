@@ -1,10 +1,7 @@
 /*
 Clock1 is a TCP server that periodically writes the time
 
-The below code can only handle one client. The second client must wait until the first client is finished
-because the server is sequential; it deals with one client at a time. Just one small change is needed to
-make the server concurrent: adding the go keyword to the call to handleConn causes each call to run in
-its own goroutine.
+Note: Use netcat to connect --> nc localhost 8000
 */
 package main
 
@@ -38,6 +35,6 @@ func main() {
 			log.Print(err) // e.g., connection aborted
 			continue
 		}
-		handleConn(conn) //handle one connection at a time
+		go handleConn(conn) //goroutine. 1 handler per connection
 	}
 }
