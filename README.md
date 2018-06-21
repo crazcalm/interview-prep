@@ -1,5 +1,5 @@
 # interview-prep
-[![Go Report Card](https://goreportcard.com/badge/github.com/crazcalm/interview-prep)](https://goreportcard.com/report/github.com/crazcalm/interview-prep)  [![Build Status](https://api.travis-ci.org/crazcalm/interview-prep.svg?branch=master)](https://travis-ci.org/crazcalm/interview-prep)    [![Coverage Status](https://coveralls.io/repos/github/crazcalm/interview-prep/badge.svg?branch=master)](https://coveralls.io/github/crazcalm/interview-prep?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/crazcalm/interview-prep)](https://goreportcard.com/report/github.com/crazcalm/interview-prep)  [![Build Status](https://api.travis-ci.org/crazcalm/interview-prep.svg?branch=master)](https://travis-ci.org/crazcalm/interview-prep)
 
 This repository consists of the material that I wrote out (or looked up) while preparing for an interview.
 
